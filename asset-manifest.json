@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movieflix/static/css/main.8ac7b6ab.chunk.css",
+    "main.css": "/movieflix/static/css/main.2f46e034.chunk.css",
     "main.js": "/movieflix/static/js/main.10c577d9.chunk.js",
     "main.js.map": "/movieflix/static/js/main.10c577d9.chunk.js.map",
     "runtime-main.js": "/movieflix/static/js/runtime-main.68907f65.js",
@@ -8,14 +8,14 @@
     "static/js/2.827c028b.chunk.js": "/movieflix/static/js/2.827c028b.chunk.js",
     "static/js/2.827c028b.chunk.js.map": "/movieflix/static/js/2.827c028b.chunk.js.map",
     "index.html": "/movieflix/index.html",
-    "static/css/main.8ac7b6ab.chunk.css.map": "/movieflix/static/css/main.8ac7b6ab.chunk.css.map",
+    "static/css/main.2f46e034.chunk.css.map": "/movieflix/static/css/main.2f46e034.chunk.css.map",
     "static/js/2.827c028b.chunk.js.LICENSE.txt": "/movieflix/static/js/2.827c028b.chunk.js.LICENSE.txt",
     "static/media/profile.c3f94521.png": "/movieflix/static/media/profile.c3f94521.png"
   },
   "entrypoints": [
     "static/js/runtime-main.68907f65.js",
     "static/js/2.827c028b.chunk.js",
-    "static/css/main.8ac7b6ab.chunk.css",
+    "static/css/main.2f46e034.chunk.css",
     "static/js/main.10c577d9.chunk.js"
   ]
 }
