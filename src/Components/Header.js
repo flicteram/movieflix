@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from "react";
 import { Context } from "../Context";
 import {Link} from 'react-router-dom'
-
+import glass from './Images/glass.png'
 
 
 function Header(){
@@ -23,8 +23,9 @@ function Header(){
 
     return (
         <header style={{backgroundColor:background}}>
-            <Link to='/movieflix'><p className='logo'>Movieflix</p></Link>
-            <input onChange={handleChange} type='text' value={search} placeholder='search movie' autoFocus/>
+            <Link to='/'><p className='logo'>Movieflix</p></Link>
+            <input onChange={handleChange} type='text' value={search} placeholder='search' autoFocus/>
+            <img className='glass' alt='glass' src={glass}/>
         </header>
         
     )

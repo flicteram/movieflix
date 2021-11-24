@@ -21,10 +21,13 @@ function Crew(){
             
         ))))
     },[movieId])
+
+    
+
     return(
         <div className='crewContainer'>
             <h2>Crew</h2>
-            <Carousel breakPoints={breakPoints} showArrows={true} pagination={false}>
+            <Carousel breakPoints={breakPoints} showArrows={true} pagination={false} showEmptySlots={true}>
             {crew}
             </Carousel>
         </div>

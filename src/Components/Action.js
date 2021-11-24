@@ -13,7 +13,7 @@ function Action(){
         .then(data=>setAction(data.results))
     },[])
 
-    let actionDisplay = action.map(item=><Link to={`movieflix/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='actionImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let actionDisplay = action.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='actionImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='actionContainer'>

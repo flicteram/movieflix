@@ -13,7 +13,7 @@ function Horror(){
         .then(data=>setHorror(data.results))
     },[])
 
-    let horrorDisplay = horror.map(item=><Link to={`movieflix/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='horrorImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let horrorDisplay = horror.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='horrorImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='horrorContainer'>

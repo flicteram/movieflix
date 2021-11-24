@@ -36,6 +36,7 @@ header{
   background-color: rgb(27, 26, 26);
 }
 header>input{
+  opacity: 1;
   background-color: inherit;
   border: 2px solid grey;
   color:white;
@@ -49,7 +50,14 @@ header>input{
   font-family: 'Bebas Neue', cursive;
   font-size:1.5rem;
   color: red;
-  
+}
+header>button{
+  border: 1px solid red;
+}
+.glass{
+  width:25px;
+  position:absolute;
+  right:19px;
 }
 
 /*  POSTER */
@@ -543,6 +551,10 @@ iframe{
     width:200px;
     padding:15px 10px;
   }
+  .glass{
+    right:50px;
+    width:30px;
+  }
   .logo{
     font-size: 2.3rem;
   }
@@ -666,4 +678,13 @@ iframe{
   }
 }
 
-
+/*loading*/
+.loadingDetailsPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color:white;
+}

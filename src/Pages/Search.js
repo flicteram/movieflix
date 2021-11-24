@@ -16,7 +16,7 @@ function Search(){
 
     if(search.length>0){
         display = displaySearch.filter(item=>item.poster_path!==null).map(item=>(
-            <Link to={`movieflix/movie/details/${item.id}`}><img className='searchResult' src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}/></Link>
+            <Link to={`/movie/details/${item.id}`}><img className='searchResult' alt={item.name||item.title} src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}/></Link>
         ))}
 
     return (

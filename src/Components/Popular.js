@@ -13,7 +13,7 @@ function Popular(){
         .then(data=>setPopular(data.results))
     },[])
 
-    let popularDisplay = popular.map(item=><Link to={`movieflix/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='popularImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let popularDisplay = popular.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='popularImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='popularContainer'>

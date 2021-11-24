@@ -13,7 +13,7 @@ function Romantic(){
         .then(data=>setRomantic(data.results))
     },[])
 
-    let romanticDisplay = romantic.map(item=><Link to={`movieflix/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='romanticImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let romanticDisplay = romantic.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='romanticImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='romanticContainer'>

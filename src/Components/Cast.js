@@ -23,7 +23,7 @@ function Cast(){
     return (
         <div className='castContainer'>
             <h2>Cast</h2>
-        <Carousel breakPoints={breakPoints} showArrows={true} pagination={false}>
+        <Carousel breakPoints={breakPoints} showArrows={true} pagination={false} showEmptySlots={true}>
             {cast}
         </Carousel>
         </div>

@@ -39,9 +39,9 @@ function Details(){
         setIsOpen(false)
     }
     function duration(num){
-    let hours = Math.floor(num / 60);  
-    let minutes = num % 60;
-        return hours+'h'+' ' + minutes+'m';         
+        let hours = Math.floor(num / 60);  
+        let minutes = num % 60;
+        return hours+'h'+' '+ minutes+'m';         
     }
 
     useEffect(()=>{
@@ -57,7 +57,12 @@ function Details(){
     },[movieId])
 
 
-    
+    if(credit.length===0){
+        return <div className='loadingDetailsPage'>
+            <h1 className='loadingDetailsPageText'>Loading...</h1>
+        </div>
+        
+    }
     
     if(Object.values(movie).length>0){
         released= movie.release_date.slice(0,4)
@@ -80,7 +85,7 @@ function Details(){
                  boxShadow:'inset 0px -300px 500px 50px rgb(27, 26, 26)'
                  }}>
                     
-                <img className='posterSmall' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
+                <img className='posterSmall' alt={movie.name||movie.title} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
                 <div className='detailsDetails'>
                     <h1 className='detailsTitle'>{movie.name||movie.title} {`(${released})`}</h1>
                     <p className='director'>Directed by <strong>{director}</strong></p>
@@ -95,7 +100,7 @@ function Details(){
                         onRequestClose={closeModal}
                         style={customStyles}
                         contentLabel="Trailer">
-                            <iframe src={`https://www.youtube.com/embed/${trailer}`}/>
+                            <iframe title={movie.name||movie.title} src={`https://www.youtube.com/embed/${trailer}`}/>
                     </Modal>
                     <p className='overview'>{movie.overview}</p>
                 </div>

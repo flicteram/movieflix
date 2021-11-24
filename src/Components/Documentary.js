@@ -13,7 +13,7 @@ function Documentary(){
         .then(data=>setDocumentary(data.results))
     },[])
 
-    let documentaryDisplay = documentary.map(item=><Link to={`movieflix/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='documentaryImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let documentaryDisplay = documentary.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='documentaryImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='documentaryContainer'>
