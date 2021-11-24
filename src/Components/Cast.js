@@ -12,11 +12,11 @@ function Cast(){
     useEffect(()=>{
         fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=4fd39374b175ef0640037cc65b89f715&language=en-US`)
         .then(response=>response.json())
-        .then(data=>setCast(data.cast.slice(0,10).map(item=>(
+        .then(data=>setCast(data.cast.slice(0,10).map(cast=>(
             <div className='cast'>
-            {item.profile_path===null?<img className='user' src={user}/>:<img className='castImg' src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}/>}
-                <p className='castName'>{item.name}</p>
-                <p className='castChar'>{item.character}</p>
+            {cast.profile_path===null?<img className='user' alt={'No name'} src={user}/>:<img className='castImg' alt={cast.name} src={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}/>}
+                <p className='castName'>{cast.name}</p>
+                <p className='castChar'>{cast.character}</p>
             </div>))))
     },[movieId])
 
