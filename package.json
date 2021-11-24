@@ -1,6 +1,6 @@
 {
   "homepage": "https://flicteram.github.io/movieflix",
-  "name": "freeflix",
+  "name": "movieflix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
