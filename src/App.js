@@ -2,8 +2,6 @@ import React from 'react'
 import Home from './Pages/Home'
 import Details from './Pages/Details';
 import {Switch, Route} from 'react-router-dom'
-
-
 import Search from './Pages/Search';
 
 

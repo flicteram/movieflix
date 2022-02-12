@@ -13,7 +13,7 @@ function Drama(){
         .then(data=>setDrama(data.results))
     },[])
 
-    let dramaDisplay = drama.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='dramaImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let dramaDisplay = drama.map(item=><Link key={item.id} to={`/movie/details/${item.id}`}><img alt={item.id} className='dramaImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='dramaContainer'>

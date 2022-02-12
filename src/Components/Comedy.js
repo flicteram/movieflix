@@ -13,7 +13,7 @@ function Comedy(){
         .then(data=>setComedy(data.results))
     },[])
 
-    let comedyDisplay = comedy.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id} className='comedyImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let comedyDisplay = comedy.map(item=><Link key={item.id} to={`/movie/details/${item.id}`}><img alt={item.id} className='comedyImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     
     return(
         <div className='comedyContainer'>

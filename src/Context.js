@@ -13,10 +13,10 @@ function ContextProvider({children}){
     }
 
     useEffect(() => {
-        
         if (search.trim()) {
           history.push('/search')
-        } else {
+        } 
+        else {
           history.push('/');
         }
       }, [search,history]);
@@ -28,7 +28,6 @@ function ContextProvider({children}){
         {width:1300, itemsToShow:5, itemToScroll:5},
         {width:1700, itemsToShow:8, itemToScroll:4},
     ]
-
     return (
         <Context.Provider value={{breakPoints,search,handleChange}}>
             {children}

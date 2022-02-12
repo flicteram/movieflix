@@ -41,7 +41,7 @@ function Details(){
     function duration(num){
         let hours = Math.floor(num / 60);  
         let minutes = num % 60;
-        return hours+'h'+' '+ minutes+'m';         
+        return `${hours}h ${minutes}m`;         
     }
 
     useEffect(()=>{

@@ -15,7 +15,8 @@ function TrendingRandom(){
     
     if(poster.length>0){
        let randomPoster = Math.floor(Math.random()*poster.length)
-        displayPoster = <div className='posterEl'>
+        displayPoster = 
+            <div className='posterEl'>
                 <img alt={poster[randomPoster].id} className='posterBig'src={`https://image.tmdb.org/t/p/original/${poster[randomPoster].backdrop_path}`}/>
                 <div className='posterDetails'>
                 <h1>{poster[randomPoster].title||poster[randomPoster].name}</h1>

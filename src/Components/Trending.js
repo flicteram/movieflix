@@ -12,8 +12,7 @@ function Trending(){
         .then(response=>response.json())
         .then(data=>setPoster(data.results))
     },[])
-    let trendingDisplay = poster.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} alt={item.id||item.title} className='trendingImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
-    
+    let trendingDisplay = poster.map(item=><Link to={`/movie/details/${item.id}`} key={item.id}><img alt={item.id||item.title} className='trendingImg' src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     return (
         <div className='trendingContainer'>
             <h2>Trending Movies</h2>

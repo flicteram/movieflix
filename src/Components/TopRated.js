@@ -13,7 +13,7 @@ function TopRated(){
         .then(data=>setTopRated(data.results))
     },[])
 
-    let topRatedDisplay = topRated.map(item=><Link to={`/movie/details/${item.id}`}><img key={item.id} className='topRatedImg' alt={item.id} src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
+    let topRatedDisplay = topRated.map(item=><Link key={item.id} to={`/movie/details/${item.id}`}><img className='topRatedImg' alt={item.id} src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`}/></Link>)
     return (
         <div className='topRated'>
             <h2>Top Rated</h2>
