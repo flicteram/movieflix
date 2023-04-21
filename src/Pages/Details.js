@@ -27,7 +27,7 @@ function Details(){
 
     const [cast,setCast] = useState([])
     const [crew,setCrew] = useState([])
-    const [trailer, setTrailer] = useState('')
+    const [trailer, setTrailer] = useState(null)
     const [isOpen,setIsOpen] = useState(false)
 
     const {movieId} = useParams()
@@ -79,7 +79,7 @@ function Details(){
                     <p className='crewJob'>{item.job}</p>
                 </div>
             )))
-            setTrailer(trailerData.results.find(item=>item.type.toLowerCase()==='trailer').key)
+            setTrailer(trailerData.results.find(item=>item.type.toLowerCase()==='trailer'))
             setLoading(false)
         }
         handleFetch()
@@ -118,13 +118,25 @@ function Details(){
                         <p>{genres}</p>
                 
                     </div>
-                    <button className='trailerButton' onClick={openModal}>Trailer</button>
-                    <Modal className='modal'
-                        isOpen={isOpen}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        contentLabel="Trailer">
-                            <iframe title={movie.name||movie.title} src={`https://www.youtube.com/embed/${trailer}`}/>
+                    {trailer &&
+                        <button className={'trailerButton'} onClick={openModal}>
+                            Trailer
+                        </button>
+                    }
+                    <Modal 
+                    className='modal'
+                    isOpen={isOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Trailer">
+                        {
+                            trailer
+                            ?
+                            <iframe title={movie.name||movie.title} src={`https://www.youtube.com/embed/${trailer.key}`}/>
+                            :
+                            <h3>Trailer not avilable</h3>
+                        }
+                        
                     </Modal>
                     <p className='overview'>{movie.overview}</p>
                 </div>
