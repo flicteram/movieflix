@@ -18,7 +18,10 @@ export default function Header(){
             }
         }
         window.addEventListener('scroll', listenScrollEvent)
-        return()=>window.removeEventListener("scroll", listenScrollEvent)
+        const ev = window.addEventListener('scroll', listenScrollEvent)
+        return ()=>{
+            window.removeEventListener('scroll', ev)
+        }
     },[])
 
     return (

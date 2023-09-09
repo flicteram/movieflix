@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom";
 const Context = createContext()
 
 function ContextProvider({children}){
-
+    const wasSearchUsed = useRef(false)
     const [search,setSearch] = useState('')
     const firstRender = useRef(true)
     const history = useHistory()
     function handleChange(e){
         e.preventDefault()
         setSearch(e.target.value)
+        wasSearchUsed.current = true
     }
     useEffect(() => {
         if (search.trim()) {
