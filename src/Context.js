@@ -1,26 +1,24 @@
-import React,{useState,createContext,useEffect} from "react";
-import { useHistory } from "react-router";
+import React,{useState,createContext,useEffect,useRef} from "react";
+import { useHistory } from "react-router-dom";
 const Context = createContext()
 
 function ContextProvider({children}){
 
     const [search,setSearch] = useState('')
-    let history = useHistory()
-
+    const firstRender = useRef(true)
+    const history = useHistory()
     function handleChange(e){
         e.preventDefault()
         setSearch(e.target.value)
     }
-
     useEffect(() => {
         if (search.trim()) {
           history.push('/search')
-        } 
-        else {
+          firstRender.current = false
+        } else if(!search.trim() && !firstRender.current){
           history.push('/');
         }
       }, [search,history]);
-
     const breakPoints= [ 
         {width:300, itemsToShow:2, itemToScroll:2},
         {width:700, itemsToShow:3 ,itemToScroll:3},

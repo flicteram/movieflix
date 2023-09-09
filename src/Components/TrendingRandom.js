@@ -1,35 +1,18 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-
-
-function TrendingRandom(){
-    const [poster,setPoster] = useState([])
-    let displayPoster = ''
-
-    useEffect(()=>{
-        fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=4fd39374b175ef0640037cc65b89f715')
-        .then(response=>response.json())
-        .then(data=>setPoster(data.results))
-    },[])
-    
-    
-    if(poster.length>0){
-       let randomPoster = Math.floor(Math.random()*poster.length)
-        displayPoster = 
-            <div className='posterEl'>
-                <img alt={poster[randomPoster].id} className='posterBig'src={`https://image.tmdb.org/t/p/original/${poster[randomPoster].backdrop_path}`}/>
-                <div className='posterDetails'>
-                <h1>{poster[randomPoster].title||poster[randomPoster].name}</h1>
-                <Link to={`/movie/details/${poster[randomPoster].id}`}><button className='detailsButton'>Detalis</button></Link>
-                <p>{poster[randomPoster].overview.length>200?poster[randomPoster].overview.split('').slice(0,200).join('')+'...':poster[randomPoster].overview}</p>
-                </div>
-            </div>
-    }
+export default function TrendingRandom({movieData}){
+    const randomNumber = Math.floor(Math.random()*movieData.length)
+    const randomMovie = movieData[randomNumber]
     return (
         <div className="posterContainer">
-            {displayPoster}
+            <div className='posterEl'>
+                <img alt={randomMovie.id} className='posterBig'src={`https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`}/>
+                <div className='posterDetails'>
+                <h1>{randomMovie.title||randomMovie.name}</h1>
+                <Link to={`/movie/details/${randomMovie.id}`}><button className='detailsButton'>Detalis</button></Link>
+                <p>{randomMovie.overview.length>200?randomMovie.overview.split('').slice(0,200).join('')+'...':randomMovie.overview}</p>
+                </div>
+            </div>
         </div>
     )
 }
-
-export default TrendingRandom
