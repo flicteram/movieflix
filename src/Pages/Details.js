@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import Cast from "../Components/Cast";
 import Crew from "../Components/Crew";
 import Similar from '../Components/Similar'
-import Header from "../Components/Header";
 import user from '../Components/Images/profile.png'
 
 
@@ -32,12 +31,7 @@ function Details(){
 
     const {movieId} = useParams()
 
-    function openModal(){
-        setIsOpen(true)
-    }
-    function closeModal(){
-        setIsOpen(false)
-    }
+    const toggleModal = () => setIsOpen(prev=>!prev)
     function duration(num){
         let hours = Math.floor(num / 60);  
         let minutes = num % 60;
@@ -45,7 +39,7 @@ function Details(){
     }
 
     useEffect(()=>{
-        const handleFetch = async () =>{
+        (async () =>{
             setLoading(true)
             const [movieData, creditsData, trailerData] = await Promise.all([
                 fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=4fd39374b175ef0640037cc65b89f715`)
@@ -81,8 +75,7 @@ function Details(){
             )))
             setTrailer(trailerData.results.find(item=>item.type.toLowerCase()==='trailer'))
             setLoading(false)
-        }
-        handleFetch()
+        })()
     },[movieId])
 
 
@@ -100,7 +93,6 @@ function Details(){
 
     return (
         <div className='detailsContainer'>
-             <Header/>
             <div className='detailsMovie'
              style={{
                  backgroundImage:`url('${background}')`,
@@ -116,17 +108,16 @@ function Details(){
                     <p className='duration'>{duration(movie.runtime)}</p>
                     <div className='genresContainer'>
                         <p>{genres}</p>
-                
                     </div>
                     {trailer &&
-                        <button className={'trailerButton'} onClick={openModal}>
+                        <button className={'trailerButton'} onClick={toggleModal}>
                             Trailer
                         </button>
                     }
                     <Modal 
                     className='modal'
                     isOpen={isOpen}
-                    onRequestClose={closeModal}
+                    onRequestClose={toggleModal}
                     style={customStyles}
                     contentLabel="Trailer">
                         {
@@ -136,7 +127,6 @@ function Details(){
                             :
                             <h3>Trailer not avilable</h3>
                         }
-                        
                     </Modal>
                     <p className='overview'>{movie.overview}</p>
                 </div>

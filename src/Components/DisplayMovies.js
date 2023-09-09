@@ -13,7 +13,7 @@ export default function DisplayMovies({moviesCategory, moviesData}){
         {
           moviesData.results.map(movie=>(
             <Link key={movie.id} to={`/movie/details/${movie.id}`}>
-              <img alt={movie.id} className='displayMoviesImg' src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}/>
+              <img alt={movie.id} className='displayMoviesImg' src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}/>
             </Link>
           ))
         }
